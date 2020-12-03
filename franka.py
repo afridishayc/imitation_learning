@@ -36,7 +36,6 @@ class FrankaEnv(gym.Env):
 		for i in range(7):
 			pb.resetJointState(self.pandaUid,i, rest_poses[i])
 		tableUid = pb.loadURDF(os.path.join(urdfRootPath, "table/table.urdf"),basePosition=[0.5,0,-0.65])
-		# trayUid = pb.loadURDF(os.path.join(urdfRootPath, "tray/traybox.urdf"),basePosition=[0.65,0,0])
 		state_object= [random.uniform(0.5,0.8),random.uniform(-0.2,0.2),0]
 		self.objectUid = pb.loadURDF(os.path.join(urdfRootPath, "random_urdfs/000/000.urdf"), basePosition=state_object)
 		state_robot = pb.getLinkState(self.pandaUid, 11)[0]

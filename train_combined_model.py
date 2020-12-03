@@ -25,7 +25,7 @@ print(datastore.actions.shape)
 
 
 combined_model = CombinedModel(16, 8, 4)
-optimizer = Adam(learning_rate=0.00000001)
+optimizer = Adam(learning_rate=0.00001)
 
 
 @tf.function
@@ -40,9 +40,9 @@ def train_step(train_states, prev_states, current_states, actions):
 	tf.print(loss)
 
 
-combined_model.load_weights(filepath="./combined_checkpoints/mcombined_model_weights130000")
+# combined_model.load_weights(filepath="./combined_checkpoints/mcombined_model_weights130000")
 
-for i in range(1000000):
+for i in range(10000):
 	prev_states, actions, current_states = datastore.sample(16)
 	train_states = np.append(prev_states, current_states, axis=1)
 	train_step(train_states, prev_states, current_states, actions)
@@ -56,4 +56,4 @@ for i in range(1000000):
 		# print(test_actions)
 		combined_model.save_weights("combined_checkpoints/mcombined_model_weights" + str(i))
 
-combined_model.save_weights("combined_checkpoints/mcombined_model_weights" + str(i))
+# combined_model.save_weights("combined_checkpoints/mcombined_model_weights" + str(i))

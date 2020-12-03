@@ -1,2 +1,2 @@
-model_checkpoint_path: "mcombined_model_weights800000"
-all_model_checkpoint_paths: "mcombined_model_weights800000"
+model_checkpoint_path: "mcombined_model_weights5000"
+all_model_checkpoint_paths: "mcombined_model_weights5000"
